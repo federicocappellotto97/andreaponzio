@@ -1,0 +1,63 @@
+import { PageComponent } from "@/lib/core/component"
+import client from "@/lib/sanity/config"
+import { pageQuery, seoQuery, settingsQuery } from "@/lib/sanity/queries"
+import type { Metadata, ResolvingMetadata } from "next"
+import { notFound } from "next/navigation"
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const slug = params.slug
+
+  // fetch data
+  const page = await client.fetch({
+    query: seoQuery(Array.isArray(slug) ? slug[0] : slug),
+    config: {
+      next: { revalidate: 60 },
+    },
+  })
+  // @ts-ignore
+  if (!page?.["slug"]) return null
+
+  // fetch data
+  const layout = await client.fetch({
+    query: settingsQuery(),
+    config: {
+      next: { revalidate: 60 },
+    },
+  })
+
+  return {
+    title: (page as any).title + (layout as any).afterTitle,
+    description: (page as any).metaDescription,
+  }
+}
+
+async function getPage(slug: string | string[]) {
+  const page = await client.fetch({
+    query: pageQuery(Array.isArray(slug) ? slug[0] : slug),
+    config: {
+      next: { revalidate: 60 },
+    },
+  })
+
+  // @ts-ignore
+  if (!page?.["slug"]) notFound()
+
+  return page
+}
+
+export default async function Page({ params }: { params: { slug: string } }) {
+  const data = await getPage(params.slug)
+
+  return (
+    // @ts-ignore
+    data?.["components"] &&
+    // @ts-ignore
+    data?.["components"]?.map(({ name, ...rest }: any, index: number) => (
+      <PageComponent key={`${name}-${index}`} componentName={name} {...rest} />
+    ))
+  )
+}
