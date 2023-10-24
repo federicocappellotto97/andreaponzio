@@ -9,8 +9,8 @@ export function middleware(req: NextRequest) {
       const authValue = basicAuth.split(" ")[1]
       const [user, pwd] = atob(authValue).split(":")
 
-      const validUser = "giorgia"
-      const validPassWord = "giorgia97"
+      const validUser = "andrea"
+      const validPassWord = "andrea99"
 
       if (user === validUser && pwd === validPassWord) {
         return NextResponse.next()
