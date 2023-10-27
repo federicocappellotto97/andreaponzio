@@ -11,16 +11,16 @@ import { seoQuery, settingsQuery } from "@/lib/sanity/queries"
 import localFont from "next/font/local"
 
 // Font files can be colocated inside of `pages`
-const futura = localFont({
+const berthold = localFont({
   src: [
     {
-      path: "../fonts/Futura/Futura Medium.ttf",
-      weight: "500",
+      path: "../fonts/Berthold Akzidenz Grotesk/Berthold Akzidenz Grotesk BE Regular.otf",
+      weight: "400",
       style: "normal",
     },
     {
-      path: "../fonts/Futura/Futura Bold.otf",
-      weight: "700",
+      path: "../fonts/Berthold Akzidenz Grotesk/Berthold Akzidenz Grotesk BE Medium.otf",
+      weight: "500",
       style: "normal",
     },
   ],
@@ -66,14 +66,17 @@ export default async function RootLayout({
   const layout = await getLayout()
   return (
     <html lang="en">
-      <body className={cx(futura.className, "bg-secondary flex flex-col")}>
-        <PageTransition>
-          <Context layout={layout}>
-            <Header />
-            <main className="min-h-screen">{children}</main>
-            <Footer />
-          </Context>
-        </PageTransition>
+      <body
+        className={cx(
+          berthold.className,
+          "bg-white dark:bg-black flex flex-col"
+        )}
+      >
+        <Context layout={layout}>
+          <Header />
+          <main className="min-h-screen pt-30">{children}</main>
+          <Footer />
+        </Context>
       </body>
     </html>
   )

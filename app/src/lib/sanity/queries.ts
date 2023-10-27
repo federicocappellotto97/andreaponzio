@@ -1,47 +1,29 @@
 export const pageQuery = (
   slug: string
-) => /* groq */ `*[_type == 'page' && slug.current == '${slug}'][0]{
-                    title, 
-                    "slug": slug.current,
-                    components[] {
-                        "name": _type,
-                        _type == 'HeroBio' => {
-                            "image": {
-                                "src": image.asset->url, 
-                                "alt": image.asset->originalFilename, 
-                                "height": image.asset->metadata.dimensions.height,
-                                "width": image.asset->metadata.dimensions.width
-                            },
-                            "text": text,
-                        },
-                        _type == 'HeroWhatIDo' => {
-                            "text": text,
-                            "text2": text2
-                        },
-                        _type == 'HeroGrid' => {
-                            images[] {
-                                "src": asset->url, 
-                                "alt": asset->originalFilename, 
-                                "height": asset->metadata.dimensions.height,
-                                "width": asset->metadata.dimensions.width
-                            },
-                            "title": ^.title
-                        },
-                        _type == 'HeroContacts' => {
-                            "image": {
-                                "src": image.asset->url, 
-                                "alt": image.asset->originalFilename, 
-                                "height": image.asset->metadata.dimensions.height,
-                                "width": image.asset->metadata.dimensions.width
-                            },
-                            "phone": phone
-                        }
-                    }
-                }`
+) => /* groq */ `*[_type == 'pages' && slug.current == '${slug}'][0]{
+      title, 
+      "slug": slug.current,
+      components[] {
+          "name": _type,
+          _type == 'HeroHome' => {
+              "title": title,
+              "text": text
+          },
+          _type == 'ThreeColumns' => {
+            columns[] {
+              column[] {
+                "title": columnItem.title,
+                "text": columnItem.text,
+              }
+            }
+          },
+            _type == 'ListingProjects' => {},
+      }
+  }`
 
 export const seoQuery = (
   slug: string
-) => /* groq */ `*[_type == 'page' && slug.current == '${slug}'][0]{
+) => /* groq */ `*[_type == 'pages' && slug.current == '${slug}'][0]{
         title, description, slug
     }
   `
@@ -49,10 +31,31 @@ export const seoQuery = (
 export const settingsQuery = () => /* groq */ `*[_type == 'settings'][0]{
         title,
         afterTitle,
-        email
+        email,
+        footerText
 }`
 
-export const pagesQuery = () => /* groq */ `*[_type == 'page']{
+export const pagesQuery = () => /* groq */ `*[_type == 'pages']{
     "slug": slug.current,
     "updatetAt": _updatedAt
+}`
+
+export const menuQuery = (
+  key: string
+) => /* groq */ `*[_type == 'menu' && key == '${key}'][0]{
+        items[] {
+            "link": link
+        }
+    }`
+
+export const projectsQuery = () => /* groq */ `*[_type == 'projects']{
+    "title": title,
+    "description": description,
+    "image": {
+        "src": image.asset->url, 
+        "alt": image.asset->originalFilename, 
+        "height": image.asset->metadata.dimensions.height,
+        "width": image.asset->metadata.dimensions.width
+    },
+    "id": _id
 }`

@@ -20,6 +20,9 @@ const config: Config = {
       },
       black: "#000000",
       white: "#FFFFFF",
+      gray: {
+        dark: "#1A1818",
+      },
       transparent: "transparent",
     },
     fontSize: {
@@ -45,7 +48,7 @@ const config: Config = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }
 export default config
 

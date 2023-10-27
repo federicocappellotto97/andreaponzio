@@ -1,7 +1,10 @@
 "use client"
 import { createContext } from "react"
 
-export const SettingsContext = createContext<{ email?: string }>({})
+export const SettingsContext = createContext<{
+  email?: string
+  title?: string
+}>({})
 export default function Context({
   layout,
   children,

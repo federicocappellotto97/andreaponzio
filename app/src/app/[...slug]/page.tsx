@@ -1,7 +1,8 @@
+import PageTransition from "@/components/Atoms/PageTransition/PageTransition"
 import { PageComponent } from "@/lib/core/component"
 import client from "@/lib/sanity/config"
 import { pageQuery, seoQuery, settingsQuery } from "@/lib/sanity/queries"
-import type { Metadata, ResolvingMetadata } from "next"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 export async function generateMetadata({
@@ -57,7 +58,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     data?.["components"] &&
     // @ts-ignore
     data?.["components"]?.map(({ name, ...rest }: any, index: number) => (
-      <PageComponent key={`${name}-${index}`} componentName={name} {...rest} />
+      <PageTransition key={`${name}-${index}`}>
+        <PageComponent componentName={name} {...rest} />
+      </PageTransition>
     ))
   )
 }
