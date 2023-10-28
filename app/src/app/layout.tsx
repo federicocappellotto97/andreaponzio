@@ -71,7 +71,7 @@ export default async function RootLayout({
       <body
         className={cx(
           berthold.className,
-          "bg-white dark:bg-black flex flex-col transition-colors duration-300 ease-out"
+          "bg-white dark:bg-black flex flex-col transition-colors duration-300 ease-out min-h-screen"
         )}
       >
         <DarkMode />
@@ -80,7 +80,7 @@ export default async function RootLayout({
           <Lenis>
             <Header />
             <PageTransition>
-              <main className="min-h-screen pt-30">{children}</main>
+              <main className="py-30">{children}</main>
             </PageTransition>
             <Footer />
           </Lenis>

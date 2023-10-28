@@ -7,7 +7,7 @@ const Footer = () => {
   const { footerText, email } = useContext(SettingsContext)
 
   return (
-    <footer className="flex items-center p-30">
+    <footer className="flex items-center p-30 mt-auto">
       <div className="flex-1">
         <a
           href={`mailto:${email}`}

@@ -18,20 +18,11 @@ export default async function Home() {
   const data = await getPage()
 
   return (
-    <>
-      <HeroHome />
-      {
-        // @ts-ignore
-        data?.["components"] &&
-          // @ts-ignore
-          data?.["components"]?.map(({ name, ...rest }: any, index: number) => (
-            <PageComponent
-              key={`${name}-${index}`}
-              componentName={name}
-              {...rest}
-            />
-          ))
-      }
-    </>
+    // @ts-ignore
+    data?.["components"] &&
+    // @ts-ignore
+    data?.["components"]?.map(({ name, ...rest }: any, index: number) => (
+      <PageComponent key={`${name}-${index}`} componentName={name} {...rest} />
+    ))
   )
 }

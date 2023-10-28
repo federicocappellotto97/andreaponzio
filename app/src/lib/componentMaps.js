@@ -12,4 +12,5 @@ export const PAGE_COMPONENTS = {
   ListingProjects: dynamic(() =>
     import("@/components/Organisms/ListingProjects/ListingProjects")
   ),
+  HeroHome: dynamic(() => import("@/components/Organisms/HeroHome/HeroHome")),
 }
