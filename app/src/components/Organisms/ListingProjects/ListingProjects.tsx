@@ -20,8 +20,8 @@ export default async function ListingProjects() {
   return (
     projects && (
       <div className="px-30 grid grid-cols-3 gap-30">
-        {(projects as Project[]).map((project: Project) => (
-          <Card key={project.id} {...project} />
+        {(projects as Project[]).map((project: Project, index) => (
+          <Card key={project.id} {...project} index={index} />
         ))}
       </div>
     )

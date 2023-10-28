@@ -11,6 +11,7 @@ export default function ThreeColumns({ columns }: { columns: any }) {
               title={title}
               text={text}
               isMain={i == 0 && k == 0}
+              index={i}
             />
           ))}
         </div>

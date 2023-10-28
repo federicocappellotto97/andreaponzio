@@ -4,6 +4,7 @@ import { createContext } from "react"
 export const SettingsContext = createContext<{
   email?: string
   title?: string
+  footerText?: any
 }>({})
 export default function Context({
   layout,

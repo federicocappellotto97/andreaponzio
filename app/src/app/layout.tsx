@@ -5,7 +5,9 @@ import "./globals.css"
 
 import PageTransition from "@/components/Atoms/PageTransition/PageTransition"
 import Footer from "@/components/Organisms/Footer/Footer"
+import { DarkMode } from "@/lib/core/DarkMode"
 import Context from "@/lib/core/context"
+import Lenis from "@/lib/core/lenis"
 import client from "@/lib/sanity/config"
 import { seoQuery, settingsQuery } from "@/lib/sanity/queries"
 import localFont from "next/font/local"
@@ -69,13 +71,19 @@ export default async function RootLayout({
       <body
         className={cx(
           berthold.className,
-          "bg-white dark:bg-black flex flex-col"
+          "bg-white dark:bg-black flex flex-col transition-colors duration-300 ease-out"
         )}
       >
+        <DarkMode />
+
         <Context layout={layout}>
-          <Header />
-          <main className="min-h-screen pt-30">{children}</main>
-          <Footer />
+          <Lenis>
+            <Header />
+            <PageTransition>
+              <main className="min-h-screen pt-30">{children}</main>
+            </PageTransition>
+            <Footer />
+          </Lenis>
         </Context>
       </body>
     </html>

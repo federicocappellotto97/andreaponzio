@@ -34,13 +34,8 @@ export default defineType({
     }),
     defineField({
       name: 'footerText',
-      type: 'array',
+      type: 'string',
       title: 'Footer text',
-      of: [
-        {
-          type: 'block',
-        },
-      ],
     }),
   ],
 })

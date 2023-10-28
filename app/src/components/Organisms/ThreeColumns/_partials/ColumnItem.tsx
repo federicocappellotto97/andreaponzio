@@ -1,19 +1,38 @@
+"use client"
 import { ConditionalWrapper } from "@/lib/core/ConditionalWrapper"
 import { titleStyle } from "../ThreeColumns.style"
 import { PortableText } from "@portabletext/react"
 import { cx } from "class-variance-authority"
-
+import { motion } from "framer-motion"
 export default function ColumnItem({
   title,
   text,
   isMain,
+  index,
 }: {
   title: string
   text: any
   isMain: boolean
+  index: number
 }) {
+  const variants = {
+    initial: { clipPath: "polygon(0 0, 100% 0%, 100% 0%, 0% 0%)" },
+    visible: (i: number) => ({
+      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+      transition: {
+        delay: i * 0.2,
+        duration: 0.5,
+        easing: [0.22, 1, 0.36, 1],
+      },
+    }),
+  }
   return (
-    <div>
+    <motion.div
+      custom={index}
+      initial="initial"
+      animate="visible"
+      variants={variants}
+    >
       <ConditionalWrapper
         wrapper={(children) =>
           isMain ? (
@@ -36,6 +55,6 @@ export default function ColumnItem({
           <PortableText value={text} />
         </div>
       )}
-    </div>
+    </motion.div>
   )
 }

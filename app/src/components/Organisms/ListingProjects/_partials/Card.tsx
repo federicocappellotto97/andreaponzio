@@ -1,10 +1,34 @@
+"use client"
 import { Project } from "@/lib/types"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
-export default function CardProject({ title, description, image }: Project) {
+export default function CardProject({
+  title,
+  description,
+  image,
+  index,
+}: Project & { index: number }) {
+  const variants = {
+    initial: { clipPath: "polygon(0 0, 100% 0%, 100% 0%, 0% 0%)" },
+    visible: (i: number) => ({
+      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+      transition: {
+        delay: i * 0.2,
+        duration: 0.5,
+        easing: [0.22, 1, 0.36, 1],
+      },
+    }),
+  }
   return (
-    <div className="aspect-[440/293] relative group overflow-hidden">
+    <motion.div
+      className="aspect-[440/293] relative group overflow-hidden"
+      custom={index}
+      initial="initial"
+      animate="visible"
+      variants={variants}
+    >
       <Image
         src={image.src}
         alt={title}
@@ -20,6 +44,6 @@ export default function CardProject({ title, description, image }: Project) {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   )
 }
