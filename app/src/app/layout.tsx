@@ -75,7 +75,6 @@ export default async function RootLayout({
         )}
       >
         <DarkMode />
-
         <Context layout={layout}>
           <Lenis>
             <Header />
