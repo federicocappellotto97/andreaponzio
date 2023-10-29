@@ -69,12 +69,5 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getPage(params.slug)
 
-  return (
-    // @ts-ignore
-    data?.["components"] &&
-    // @ts-ignore
-    data?.["components"]?.map(({ name, ...rest }: any, index: number) => (
-      <PageComponent componentName={name} {...rest} key={`${name}-${index}`} />
-    ))
-  )
+  return <div className="text-[red]">{JSON.stringify(data, null, 2)}</div>
 }
