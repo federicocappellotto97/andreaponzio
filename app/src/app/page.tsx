@@ -1,4 +1,3 @@
-import HeroHome from "@/components/Organisms/HeroHome/HeroHome"
 import { PageComponent } from "@/lib/core/component"
 import client from "@/lib/sanity/config"
 import { pageQuery } from "@/lib/sanity/queries"

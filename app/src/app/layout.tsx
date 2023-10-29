@@ -78,9 +78,9 @@ export default async function RootLayout({
         <Context layout={layout}>
           <Lenis>
             <Header />
-
-            <main className="py-30">{children}</main>
-
+            <PageTransition>
+              <main className="py-30">{children}</main>
+            </PageTransition>
             <Footer />
           </Lenis>
         </Context>
