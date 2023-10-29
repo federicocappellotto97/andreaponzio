@@ -35,7 +35,13 @@ export const settingsQuery = () => /* groq */ `*[_type == 'settings'][0]{
         footerText
 }`
 
-export const pagesQuery = () => /* groq */ `*[_type == 'pages']{
+export const pagesQuery = (
+  withHomepage = true
+) => /* groq */ `*[_type == 'pages' ${
+  withHomepage ? "" : "&& slug.current != 'homepage'"
+}]{
+    "title": title,
+    "description": description,
     "slug": slug.current,
     "updatetAt": _updatedAt
 }`

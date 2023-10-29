@@ -1,7 +1,12 @@
 import PageTransition from "@/components/Atoms/PageTransition/PageTransition"
 import { PageComponent } from "@/lib/core/component"
 import client from "@/lib/sanity/config"
-import { pageQuery, seoQuery, settingsQuery } from "@/lib/sanity/queries"
+import {
+  pageQuery,
+  pagesQuery,
+  seoQuery,
+  settingsQuery,
+} from "@/lib/sanity/queries"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -50,6 +55,17 @@ async function getPage(slug: string | string[]) {
   return page
 }
 
+export async function generateStaticParams() {
+  const pages = await client.fetch({
+    query: pagesQuery(false),
+    config: {
+      next: { revalidate: 60 },
+    },
+  })
+
+  return (pages as any).map(({ slug }: any) => slug)
+}
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getPage(params.slug)
 
@@ -58,9 +74,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     data?.["components"] &&
     // @ts-ignore
     data?.["components"]?.map(({ name, ...rest }: any, index: number) => (
-      <PageTransition key={`${name}-${index}`}>
-        <PageComponent componentName={name} {...rest} />
-      </PageTransition>
+      <PageComponent componentName={name} {...rest} key={`${name}-${index}`} />
     ))
   )
 }
