@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="flex-1">
         <a
           href={`mailto:${email}`}
-          className="hover:text-blue-500 dark:text-white transition-colors duration-300 ease-out"
+          className="hover:text-blue-500 dark:hover:text-blue-500 dark:text-white transition-colors duration-300 ease-out"
         >
           {email}
         </a>
