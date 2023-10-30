@@ -1,7 +1,8 @@
+import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
+import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 
 export default defineConfig({
   name: 'default',
@@ -10,8 +11,18 @@ export default defineConfig({
   projectId: 'ud7dp078',
   dataset: 'production',
 
-  plugins: [deskTool(), visionTool()],
-
+  plugins: [
+    deskTool({
+      structure: (S, context) =>
+        S.list()
+          .title('Content')
+          .items([
+            ...S.documentTypeListItems(),
+            orderableDocumentListDeskItem({type: 'projects', S, context}),
+          ]),
+    }),
+    visionTool(),
+  ],
   schema: {
     types: schemaTypes,
   },

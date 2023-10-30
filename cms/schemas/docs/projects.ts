@@ -1,5 +1,6 @@
 import {defineType, defineField} from 'sanity'
 import {DashboardIcon} from '@sanity/icons'
+import {orderRankField} from '@sanity/orderable-document-list'
 
 export default defineType({
   name: 'projects',
@@ -28,6 +29,7 @@ export default defineType({
         },
       ],
     }),
+    orderRankField({type: 'projects'}),
   ],
   preview: {
     select: {
