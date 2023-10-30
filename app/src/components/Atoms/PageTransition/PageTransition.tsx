@@ -32,12 +32,22 @@ export const PAGE_TRANSITION_DURATION = 0.3
 
 export const IsDelayAnimate = createContext<boolean>(false)
 
+function shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+  return [...array]
+}
+
 export default function PageTransition({ children }: PropsWithChildren) {
   const pathname = usePathname()
   const [delayAnimate, setDelayAnimate] = useState(false)
   useEffect(() => {
     setDelayAnimate(true)
   }, [])
+
+  const indices = shuffleArray(Array.from(Array(5).keys()))
 
   return (
     <AnimatePresence
@@ -46,7 +56,7 @@ export default function PageTransition({ children }: PropsWithChildren) {
       onExitComplete={() => window.scrollTo(0, 0)}
     >
       <div key={pathname} className="contents">
-        {new Array(5).fill(0).map((_, i) => (
+        {indices.map((_, i) => (
           <Fragment key={i}>
             <motion.div
               initial={{ y: "-100%" }}
@@ -59,7 +69,7 @@ export default function PageTransition({ children }: PropsWithChildren) {
               transition={{
                 duration: PAGE_TRANSITION_DURATION,
                 ease: [0.22, 1, 0.36, 1],
-                delay: 0.1 * i,
+                delay: 0.1 * indices[i],
               }}
             />
             <motion.div
@@ -73,7 +83,7 @@ export default function PageTransition({ children }: PropsWithChildren) {
               transition={{
                 duration: PAGE_TRANSITION_DURATION,
                 ease: [0.22, 1, 0.36, 1],
-                delay: 0.1 * i,
+                delay: 0.1 * indices[i],
               }}
             />
           </Fragment>
