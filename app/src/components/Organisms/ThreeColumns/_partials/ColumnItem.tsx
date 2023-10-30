@@ -1,9 +1,14 @@
 "use client"
+import {
+  IsDelayAnimate,
+  PAGE_TRANSITION_DURATION,
+} from "@/components/Atoms/PageTransition/PageTransition"
 import { ConditionalWrapper } from "@/lib/core/ConditionalWrapper"
-import { titleStyle } from "../ThreeColumns.style"
 import { PortableText } from "@portabletext/react"
 import { cx } from "class-variance-authority"
 import { motion } from "framer-motion"
+import { titleStyle } from "../ThreeColumns.style"
+import { useContext } from "react"
 export default function ColumnItem({
   title,
   text,
@@ -15,17 +20,19 @@ export default function ColumnItem({
   isMain: boolean
   index: number
 }) {
+  const hasDelay = useContext(IsDelayAnimate)
   const variants = {
     initial: { clipPath: "polygon(0 0, 100% 0%, 100% 0%, 0% 0%)" },
     visible: (i: number) => ({
       clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
       transition: {
-        delay: i * 0.2,
+        delay: i * 0.2 + (hasDelay ? PAGE_TRANSITION_DURATION : 0),
         duration: 0.5,
-        easing: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1],
       },
     }),
   }
+
   return (
     <motion.div
       custom={index}

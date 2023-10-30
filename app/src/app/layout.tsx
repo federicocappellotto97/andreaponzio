@@ -1,3 +1,4 @@
+import NextTopLoader from "nextjs-toploader"
 import Header from "@/components/Organisms/Header/Header"
 import { cx } from "class-variance-authority"
 import type { Metadata } from "next"
@@ -5,12 +6,12 @@ import "./globals.css"
 
 import PageTransition from "@/components/Atoms/PageTransition/PageTransition"
 import Footer from "@/components/Organisms/Footer/Footer"
-import { DarkMode } from "@/lib/core/DarkMode"
 import Context from "@/lib/core/context"
 import Lenis from "@/lib/core/lenis"
 import client from "@/lib/sanity/config"
 import { seoQuery, settingsQuery } from "@/lib/sanity/queries"
 import localFont from "next/font/local"
+import { DarkMode } from "@/lib/core/DarkMode"
 
 // Font files can be colocated inside of `pages`
 const berthold = localFont({
@@ -74,6 +75,7 @@ export default async function RootLayout({
           "bg-white dark:bg-black flex flex-col transition-colors duration-300 ease-out min-h-screen"
         )}
       >
+        <NextTopLoader color="black" />
         <DarkMode />
         <Context layout={layout}>
           <Lenis>

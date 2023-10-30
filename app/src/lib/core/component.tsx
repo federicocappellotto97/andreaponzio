@@ -1,5 +1,4 @@
-"use client"
-import React, { memo, useMemo } from "react"
+import { memo, useMemo } from "react"
 
 import { PAGE_COMPONENTS } from "../componentMaps"
 

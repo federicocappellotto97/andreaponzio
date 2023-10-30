@@ -3,6 +3,11 @@ import { Project } from "@/lib/types"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import {
+  IsDelayAnimate,
+  PAGE_TRANSITION_DURATION,
+} from "@/components/Atoms/PageTransition/PageTransition"
+import { useContext } from "react"
 
 export default function CardProject({
   title,
@@ -10,14 +15,16 @@ export default function CardProject({
   image,
   index,
 }: Project & { index: number }) {
+  const hasDelay = useContext(IsDelayAnimate)
+
   const variants = {
     initial: { clipPath: "polygon(0 0, 100% 0%, 100% 0%, 0% 0%)" },
     visible: (i: number) => ({
       clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
       transition: {
-        delay: i * 0.2,
+        delay: i * 0.2 + (hasDelay ? PAGE_TRANSITION_DURATION : 0),
         duration: 0.5,
-        easing: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1],
       },
     }),
   }

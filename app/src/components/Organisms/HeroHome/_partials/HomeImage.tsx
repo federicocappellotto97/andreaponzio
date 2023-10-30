@@ -1,14 +1,21 @@
 "use client"
+import {
+  IsDelayAnimate,
+  PAGE_TRANSITION_DURATION,
+} from "@/components/Atoms/PageTransition/PageTransition"
 import { motion } from "framer-motion"
+import { useContext } from "react"
 function HomeImage() {
+  const hasDelay = useContext(IsDelayAnimate)
+
   const variants = {
     initial: { clipPath: "polygon(0 0, 100% 0%, 100% 0%, 0% 0%)" },
     visible: (i: number) => ({
       clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
       transition: {
-        delay: i * 0.1,
+        delay: i * 0.1 + (hasDelay ? PAGE_TRANSITION_DURATION : 0),
         duration: 0.3,
-        easing: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1],
       },
     }),
   }

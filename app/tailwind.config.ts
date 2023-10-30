@@ -50,6 +50,11 @@ const config: Config = {
     extend: {},
   },
   plugins: [require("@tailwindcss/typography")],
+  safelist: [
+    {
+      pattern: /bg-(blue)-(100|200|300|400|500)/,
+    },
+  ],
 }
 export default config
 

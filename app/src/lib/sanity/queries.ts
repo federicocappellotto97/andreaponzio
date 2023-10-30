@@ -54,7 +54,8 @@ export const menuQuery = (
         }
     }`
 
-export const projectsQuery = () => /* groq */ `*[_type == 'projects']{
+export const projectsQuery =
+  () => /* groq */ `*[_type == 'projects']|order(orderRank){
     "title": title,
     "description": description,
     "image": {
