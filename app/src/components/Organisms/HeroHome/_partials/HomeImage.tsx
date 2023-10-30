@@ -20,6 +20,17 @@ function HomeImage() {
     }),
   }
 
+  const fillVariants = {
+    initial: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  }
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -51,14 +62,20 @@ function HomeImage() {
             transform="translate(138.481 39.253)"
           ></path>
         </motion.g>
-        <g data-name="Group 2" transform="translate(167.28 155.212)">
+        <motion.g
+          initial="initial"
+          animate="visible"
+          variants={fillVariants}
+          data-name="Group 2"
+          transform="translate(167.28 155.212)"
+        >
           <path
             fill="#41bbac"
             d="M-8.507-1.5V8.844a9.54 9.54 0 01-3.257 7.437 9.822 9.822 0 01-7.179 2.919h-41.716a10.192 10.192 0 01-7.5-2.915A10.023 10.023 0 01-71.1 8.844V-1.5a9.644 9.644 0 012.938-7.112 9.659 9.659 0 017.5-3.231h41.717a9.331 9.331 0 017.178 3.231A9.2 9.2 0 01-8.507-1.5"
             data-name="Path 3"
             transform="translate(71.095 11.844)"
           ></path>
-        </g>
+        </motion.g>
         <motion.g
           data-name="Group 3"
           transform="translate(271.587 62.083)"
@@ -87,14 +104,20 @@ function HomeImage() {
             transform="translate(138.472 3.7)"
           ></path>
         </motion.g>
-        <g data-name="Group 5" transform="translate(438.471 93.123)">
+        <motion.g
+          initial="initial"
+          animate="visible"
+          variants={fillVariants}
+          data-name="Group 5"
+          transform="translate(438.471 93.123)"
+        >
           <path
             fill="#4afcfe"
             d="M-8.506-1.5v72.424a9.511 9.511 0 01-3.257 7.437 9.8 9.8 0 01-7.17 2.915H-60.65a10.19 10.19 0 01-7.5-2.915 10.023 10.023 0 01-2.939-7.437V-1.5a9.645 9.645 0 012.939-7.113 9.664 9.664 0 017.5-3.239h41.717a9.321 9.321 0 017.17 3.239A9.177 9.177 0 01-8.506-1.5"
             data-name="Path 6"
             transform="translate(71.086 11.854)"
           ></path>
-        </g>
+        </motion.g>
         <motion.g
           data-name="Group 6"
           transform="translate(542.776 62.083)"
@@ -123,14 +146,20 @@ function HomeImage() {
             transform="translate(38.871 110.338)"
           ></path>
         </motion.g>
-        <g data-name="Group 8" transform="translate(678.372 93.123)">
+        <motion.g
+          initial="initial"
+          animate="visible"
+          variants={fillVariants}
+          data-name="Group 8"
+          transform="translate(678.372 93.123)"
+        >
           <path
             fill="#55dafd"
             d="M-8.506-1.5V8.842a9.54 9.54 0 01-3.257 7.437 9.8 9.8 0 01-7.17 2.915h-41.725a10.192 10.192 0 01-7.5-2.915 10.017 10.017 0 01-2.93-7.437V-1.5a9.637 9.637 0 012.93-7.113 9.666 9.666 0 017.5-3.239h41.726a9.321 9.321 0 017.17 3.239A9.205 9.205 0 01-8.506-1.5"
             data-name="Path 9"
             transform="translate(71.086 11.854)"
           ></path>
-        </g>
+        </motion.g>
         <motion.g
           data-name="Group 9"
           transform="translate(782.669 62.081)"
@@ -145,14 +174,20 @@ function HomeImage() {
             transform="translate(138.481 39.253)"
           ></path>
         </motion.g>
-        <g data-name="Group 10" transform="translate(813.959 155.212)">
+        <motion.g
+          initial="initial"
+          animate="visible"
+          variants={fillVariants}
+          data-name="Group 10"
+          transform="translate(813.959 155.212)"
+        >
           <path
             fill="#2e95b4"
             d="M-8.507-1.5V8.844a9.518 9.518 0 01-3.266 7.437 9.787 9.787 0 01-7.17 2.915H-60.66a10.192 10.192 0 01-7.5-2.915 10.023 10.023 0 01-2.94-7.437V-1.5a9.645 9.645 0 012.939-7.112 9.659 9.659 0 017.5-3.231h41.717a9.3 9.3 0 017.17 3.231A9.185 9.185 0 01-8.507-1.5"
             data-name="Path 11"
             transform="translate(71.096 11.844)"
           ></path>
-        </g>
+        </motion.g>
         <motion.g
           data-name="Group 11"
           transform="translate(0 228.804)"
@@ -167,14 +202,20 @@ function HomeImage() {
             transform="translate(138.472 39.244)"
           ></path>
         </motion.g>
-        <g data-name="Group 12" transform="translate(31.289 259.845)">
+        <motion.g
+          initial="initial"
+          animate="visible"
+          variants={fillVariants}
+          data-name="Group 12"
+          transform="translate(31.289 259.845)"
+        >
           <path
             fill="#59d3c8"
             d="M-8.507-1.5v72.424a9.52 9.52 0 01-3.266 7.438 9.8 9.8 0 01-7.17 2.914H-60.66a10.192 10.192 0 01-7.5-2.914 10.025 10.025 0 01-2.94-7.438V-1.5a9.647 9.647 0 012.939-7.12 9.686 9.686 0 017.5-3.232h41.717a9.34 9.34 0 017.17 3.232A9.186 9.186 0 01-8.507-1.5"
             data-name="Path 13"
             transform="translate(71.096 11.854)"
           ></path>
-        </g>
+        </motion.g>
         <motion.g
           data-name="Group 13"
           transform="translate(135.595 228.804)"
@@ -189,14 +230,20 @@ function HomeImage() {
             transform="translate(138.472 39.244)"
           ></path>
         </motion.g>
-        <g data-name="Group 14" transform="translate(166.885 259.845)">
+        <motion.g
+          initial="initial"
+          animate="visible"
+          variants={fillVariants}
+          data-name="Group 14"
+          transform="translate(166.885 259.845)"
+        >
           <path
             fill="#40ffc9"
             d="M-8.506-1.5v72.424a9.513 9.513 0 01-3.257 7.438 9.8 9.8 0 01-7.17 2.914h-41.725a10.17 10.17 0 01-7.489-2.914 10.025 10.025 0 01-2.939-7.438V-1.5a9.647 9.647 0 012.939-7.12 9.666 9.666 0 017.489-3.232h41.726a9.34 9.34 0 017.17 3.232A9.178 9.178 0 01-8.506-1.5"
             data-name="Path 15"
             transform="translate(71.086 11.854)"
           ></path>
-        </g>
+        </motion.g>
         <motion.g
           data-name="Group 15"
           transform="translate(271.19 228.804)"
@@ -253,14 +300,20 @@ function HomeImage() {
             transform="translate(138.472 39.244)"
           ></path>
         </motion.g>
-        <g data-name="Group 19" transform="translate(615.389 259.845)">
+        <motion.g
+          initial="initial"
+          animate="visible"
+          variants={fillVariants}
+          data-name="Group 19"
+          transform="translate(615.389 259.845)"
+        >
           <path
             fill="#b2fefe"
             d="M-8.506-1.5v72.424a9.541 9.541 0 01-3.257 7.438 9.8 9.8 0 01-7.17 2.914h-41.725a10.2 10.2 0 01-7.5-2.914 10.053 10.053 0 01-2.93-7.438V-1.5a9.673 9.673 0 012.93-7.12 9.7 9.7 0 017.5-3.232h41.726a9.34 9.34 0 017.17 3.232A9.206 9.206 0 01-8.506-1.5"
             data-name="Path 20"
             transform="translate(71.086 11.854)"
           ></path>
-        </g>
+        </motion.g>
       </g>
     </svg>
   )
