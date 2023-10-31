@@ -1,28 +1,18 @@
-"use client"
-import DarkModeToggle from "@/components/Atoms/DarkModeToggle/DarkModeToggle"
-import { SettingsContext } from "@/lib/core/context"
-import { useContext } from "react"
+import FirstColumn from "./_partials/FirstColumn"
+import SecondColumn from "./_partials/SecondColumn"
+import ThirdColumn from "./_partials/ThirdColumn"
 
 const Footer = () => {
-  const { footerText, email } = useContext(SettingsContext)
-
   return (
     <footer className="flex items-center p-30 mt-auto">
       <div className="flex-1">
-        <a
-          href={`mailto:${email}`}
-          className="hover:text-blue-500 dark:hover:text-blue-500 dark:text-white transition-colors duration-300 ease-out"
-        >
-          {email}
-        </a>
+        <FirstColumn />
       </div>
-      {footerText && (
-        <p className="text-black dark:text-white">
-          {footerText.replace("%year%", new Date().getFullYear().toString())}
-        </p>
-      )}
+      <div>
+        <SecondColumn />
+      </div>
       <div className="flex-1 flex justify-end">
-        <DarkModeToggle />
+        <ThirdColumn />
       </div>
     </footer>
   )

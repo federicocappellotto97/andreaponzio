@@ -3,16 +3,19 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "404",
-  description: "404 - Page not found",
+  description: "404 - Pagina non trovata",
 }
 export default function NotFound() {
   return (
-    <div className="h-screen flex flex-col pt-56 items-center gap-8 overflow-hidden">
-      <p className="uppercase text-primary text-center font-medium text-[4rem] tracking-wide leading-none whitespace-nowrap">
-        404 - Page not found
+    <div className="flex flex-1 flex-col items-center justify-center gap-32 overflow-hidden">
+      <p className="uppercase text-lg text-center font-medium leading-none whitespace-nowrap">
+        404 - Pagina non trovata
       </p>
-      <Link href="/" className="text-primary underline text-[2rem]">
-        Back to home
+      <Link
+        href="/"
+        className="font-medium hover:bg-blue-400 transition-colors duration-300 ease-out px-64 rounded bg-blue-100 py-16"
+      >
+        Torna alla home
       </Link>
     </div>
   )

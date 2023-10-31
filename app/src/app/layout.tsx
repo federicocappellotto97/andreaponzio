@@ -68,7 +68,7 @@ export default async function RootLayout({
 }) {
   const layout = await getLayout()
   return (
-    <html lang="en">
+    <html lang="it">
       <body
         className={cx(
           berthold.className,
@@ -81,7 +81,7 @@ export default async function RootLayout({
           <Lenis>
             <Header />
             <PageTransition>
-              <main className="py-30">{children}</main>
+              <main className="py-30 flex-1 flex flex-col">{children}</main>
             </PageTransition>
             <Footer />
           </Lenis>
