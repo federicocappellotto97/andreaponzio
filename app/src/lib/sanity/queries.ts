@@ -24,7 +24,7 @@ export const pageQuery = (
 export const seoQuery = (
   slug: string
 ) => /* groq */ `*[_type == 'pages' && slug.current == '${slug}'][0]{
-        title, description, slug
+        title, metaDescription, slug
     }
   `
 
@@ -41,7 +41,7 @@ export const pagesQuery = (
   withHomepage ? "" : "&& slug.current != 'homepage'"
 }]{
     "title": title,
-    "description": description,
+    "metaDescription": metaDescription,
     "slug": slug.current,
     "updatetAt": _updatedAt
 }`
