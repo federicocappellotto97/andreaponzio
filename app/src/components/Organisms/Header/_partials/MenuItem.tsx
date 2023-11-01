@@ -9,9 +9,9 @@ const MenuItem = ({ url, label }: { url: string; label: string }) => {
     <NextLink
       href={url}
       className={cx(
-        "inline-block text-lg font-medium relative z-10 transition-colors duration-300 ease-out hover:text-blue-500 dark:hover:text-blue-500",
+        "inline-block text-lg font-medium relative z-10 transition-colors duration-300 ease-out hover:text-[var(--current-color)] dark:hover:text-[var(--current-color)]",
         pathname == url
-          ? "pointer-events-none text-blue-500"
+          ? "pointer-events-none text-[var(--current-color)]"
           : "text-black dark:text-white"
       )}
     >

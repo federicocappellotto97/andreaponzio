@@ -8,7 +8,7 @@ export default function HeroHome({
   text: any
 }) {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-1 items-center justify-center">
       <div className="relative">
         <HomeImage />
         <div className="absolute hidden dark:block -bottom-26 w-205 left-full -translate-x-1/2">

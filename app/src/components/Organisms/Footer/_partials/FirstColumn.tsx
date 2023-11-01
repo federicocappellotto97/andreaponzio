@@ -8,7 +8,7 @@ const FirstColumn = () => {
   return (
     <a
       href={`mailto:${email}`}
-      className="hover:text-blue-500 dark:hover:text-blue-500 dark:text-white transition-colors duration-300 ease-out"
+      className="hover:text-[var(--current-color)] dark:hover:text-[var(--current-color)] dark:text-white transition-colors duration-300 ease-out"
     >
       {email}
     </a>

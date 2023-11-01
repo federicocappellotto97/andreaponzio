@@ -55,7 +55,7 @@ export default function ColumnItem({
       {text && (
         <div
           className={cx(
-            "px-16 prose max-w-none text-black dark:text-white dark:prose-strong:text-white dark:prose-a:text-white hover:prose-a:text-blue-500 prose-a:transition-colors prose-a:duration-300 prose-a:ease-out prose-a:font-normal prose-a:no-underline",
+            "px-16 prose max-w-none text-black dark:text-white dark:prose-strong:text-white dark:prose-a:text-white hover:prose-a:text-[var(--current-color)] prose-a:transition-colors prose-a:duration-300 prose-a:ease-out prose-a:font-normal prose-a:no-underline",
             isMain ? "text-lg" : "text-base"
           )}
         >

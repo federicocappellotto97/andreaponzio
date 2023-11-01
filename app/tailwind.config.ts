@@ -1,6 +1,16 @@
 import type { Config } from "tailwindcss"
 const defaultTheme = require("tailwindcss/defaultTheme")
 
+export const blue = {
+  100: "#40FFC9",
+  200: "#4AFCFE",
+  300: "#59D3C8",
+  400: "#2E95B4",
+  500: "#41BBAC",
+  600: "#55DAFD",
+  700: "#B2FEFE",
+}
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,15 +20,7 @@ const config: Config = {
   darkMode: "class",
   theme: {
     colors: {
-      blue: {
-        100: "#40FFC9",
-        200: "#4AFCFE",
-        300: "#59D3C8",
-        400: "#2E95B4",
-        500: "#41BBAC",
-        600: "#55DAFD",
-        700: "#B2FEFE",
-      },
+      blue,
       black: "#000000",
       white: "#FFFFFF",
       gray: {

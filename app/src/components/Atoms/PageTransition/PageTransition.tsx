@@ -32,7 +32,7 @@ export const PAGE_TRANSITION_DURATION = 0.3
 
 export const IsDelayAnimate = createContext<boolean>(false)
 
-function shuffleArray(array: any[]) {
+export function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[array[i], array[j]] = [array[j], array[i]]
