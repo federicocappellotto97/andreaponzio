@@ -19,7 +19,7 @@ function HomeImage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setColors(shuffleArray([...colors]))
-    }, 500)
+    }, 300)
 
     return () => clearInterval(interval)
   }, [colors])
