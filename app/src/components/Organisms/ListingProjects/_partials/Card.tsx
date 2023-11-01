@@ -9,6 +9,7 @@ import {
 } from "@/components/Atoms/PageTransition/PageTransition"
 import { useContext, useState } from "react"
 import { blue } from "../../../../../tailwind.config"
+import Link from "next/link"
 
 export default function CardProject({
   title,
@@ -63,7 +64,23 @@ export default function CardProject({
         <h2 className="text-lg font-medium">{title}</h2>
         {description && (
           <div className="mt-auto">
-            <PortableText value={description} />
+            <PortableText
+              value={description}
+              components={{
+                marks: {
+                  link: ({ children, value }) => {
+                    return (
+                      <Link
+                        href={value?.href ? value?.href : "#"}
+                        target={value?.blank ? "_blank" : ""}
+                      >
+                        {children}
+                      </Link>
+                    )
+                  },
+                },
+              }}
+            />
           </div>
         )}
       </div>

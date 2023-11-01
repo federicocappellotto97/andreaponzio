@@ -9,6 +9,7 @@ import { cx } from "class-variance-authority"
 import { motion } from "framer-motion"
 import { titleStyle } from "../ThreeColumns.style"
 import { useContext } from "react"
+import Link from "next/link"
 export default function ColumnItem({
   title,
   text,
@@ -59,7 +60,23 @@ export default function ColumnItem({
             isMain ? "text-lg" : "text-base"
           )}
         >
-          <PortableText value={text} />
+          <PortableText
+            value={text}
+            components={{
+              marks: {
+                link: ({ children, value }) => {
+                  return (
+                    <Link
+                      href={value?.href ? value?.href : "#"}
+                      target={value?.blank ? "_blank" : ""}
+                    >
+                      {children}
+                    </Link>
+                  )
+                },
+              },
+            }}
+          />
         </div>
       )}
     </motion.div>
