@@ -18,6 +18,10 @@ export const pageQuery = (
             }
           },
             _type == 'ListingProjects' => {},
+            _type == 'Spacer' => {
+              "height": height,
+              "mobileHeight": mobileHeight
+          },
       }
   }`
 

@@ -13,4 +13,5 @@ export const PAGE_COMPONENTS = {
     import("@/components/Organisms/ListingProjects/ListingProjects")
   ),
   HeroHome: dynamic(() => import("@/components/Organisms/HeroHome/HeroHome")),
+  Spacer: dynamic(() => import("@/components/Organisms/Spacer/Spacer")),
 }

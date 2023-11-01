@@ -10,13 +10,16 @@ const Spacer = defineType({
       type: 'number',
       validation: (Rule) => Rule.required().min(0),
       initialValue: 0,
+      description: 'Height in pixels',
     }),
     defineField({
-      name: 'mobileheight',
+      name: 'mobileHeight',
       title: 'Mobile Height',
       type: 'number',
       validation: (Rule) => Rule.min(0),
       initialValue: 0,
+      description:
+        'Height in pixels. If not set, the height will be the same as the desktop height',
     }),
   ],
   preview: {
