@@ -34,8 +34,34 @@ export default defineType({
     }),
     defineField({
       name: 'footerText',
-      type: 'string',
+      type: 'array',
       title: 'Footer text',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'string',
+                    title: 'URL',
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
     }),
   ],
 })

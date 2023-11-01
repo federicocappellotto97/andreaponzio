@@ -71,7 +71,7 @@ export default async function RootLayout({
       <body
         className={cx(
           berthold.className,
-          "bg-white dark:bg-black flex flex-col transition-colors duration-300 ease-out min-h-screen"
+          "bg-white dark:bg-black antialiased flex flex-col transition-colors duration-300 ease-out min-h-screen"
         )}
       >
         <NextTopLoader color="black" />
