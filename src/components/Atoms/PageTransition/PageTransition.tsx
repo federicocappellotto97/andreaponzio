@@ -47,8 +47,6 @@ export default function PageTransition({ children }: PropsWithChildren) {
     setDelayAnimate(true)
   }, [])
 
-  console.log(pathname)
-
   const indices = shuffleArray(Array.from(Array(5).keys()))
 
   return (

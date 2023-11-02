@@ -11,6 +11,7 @@
   "dependencies": {
     "@portabletext/react": "^3.0.11",
     "@sanity/orderable-document-list": "^1.1.0",
+    "@sanity/vision": "^3.19.0",
     "@studio-freight/react-lenis": "^0.0.36",
     "@types/node": "20.8.10",
     "@types/react": "18.2.34",
