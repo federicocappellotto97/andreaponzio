@@ -3,9 +3,7 @@ import { pagesQuery } from "@/lib/sanity/queries"
 import type { MetadataRoute } from "next"
 
 async function getPages() {
-  const pages = await client.fetch({
-    query: pagesQuery(),
-  })
+  const pages = await client.fetch(pagesQuery())
 
   return pages
 }

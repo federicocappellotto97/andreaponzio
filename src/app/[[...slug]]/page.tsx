@@ -17,21 +17,18 @@ export async function generateMetadata({
   const slug = params.slug
 
   // fetch data
-  const page = await client.fetch({
-    query: seoQuery(slug ? (Array.isArray(slug) ? slug[0] : slug) : "homepage"),
-    config: {
+  const page = await client.fetch(
+    seoQuery(slug ? (Array.isArray(slug) ? slug[0] : slug) : "homepage"),
+    {
       next: { revalidate: 60 },
-    },
-  })
+    }
+  )
   // @ts-ignore
   if (!page?.["slug"]) return null
 
   // fetch data
-  const layout = await client.fetch({
-    query: settingsQuery(),
-    config: {
-      next: { revalidate: 60 },
-    },
+  const layout = await client.fetch(settingsQuery(), {
+    next: { revalidate: 60 },
   })
 
   return {
@@ -41,14 +38,12 @@ export async function generateMetadata({
 }
 
 async function getPage(slug: string | string[]) {
-  const page = await client.fetch({
-    query: pageQuery(
-      slug ? (Array.isArray(slug) ? slug[0] : slug) : "homepage"
-    ),
-    config: {
+  const page = await client.fetch(
+    pageQuery(slug ? (Array.isArray(slug) ? slug[0] : slug) : "homepage"),
+    {
       next: { revalidate: 60 },
-    },
-  })
+    }
+  )
 
   // @ts-ignore
   if (!page?.["slug"]) notFound()
@@ -57,11 +52,8 @@ async function getPage(slug: string | string[]) {
 }
 
 export async function generateStaticParams() {
-  const pages = await client.fetch({
-    query: pagesQuery(false),
-    config: {
-      next: { revalidate: 60 },
-    },
+  const pages = await client.fetch(pagesQuery(false), {
+    next: { revalidate: 60 },
   })
 
   return (pages as any).map(({ slug }: any) => slug)
