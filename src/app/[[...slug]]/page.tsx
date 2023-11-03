@@ -27,9 +27,7 @@ export async function generateMetadata({
   if (!page?.["slug"]) return null
 
   // fetch data
-  const layout = await client.fetch(settingsQuery(), {
-    next: { revalidate: 60 },
-  })
+  const layout = await client.fetch(settingsQuery())
 
   return {
     title: (page as any).title + (layout as any).afterTitle,
@@ -52,9 +50,7 @@ async function getPage(slug: string | string[]) {
 }
 
 export async function generateStaticParams() {
-  const pages = await client.fetch(pagesQuery(false), {
-    next: { revalidate: 60 },
-  })
+  const pages = await client.fetch(pagesQuery(false))
 
   return (pages as any).map(({ slug }: any) => slug)
 }

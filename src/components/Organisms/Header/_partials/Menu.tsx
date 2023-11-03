@@ -4,9 +4,7 @@ import { Link } from "@/lib/types"
 import MenuItem from "./MenuItem"
 
 async function getMenu(key: string) {
-  const menu = await client.fetch(menuQuery(key), {
-    next: { revalidate: 60 },
-  })
+  const menu = await client.fetch(menuQuery(key))
 
   return menu
 }

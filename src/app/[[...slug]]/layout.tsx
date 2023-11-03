@@ -7,14 +7,12 @@ import Lenis from "@/lib/core/lenis"
 import client from "@/lib/sanity/config"
 import { seoQuery, settingsQuery } from "@/lib/sanity/queries"
 
+export const revalidate = 60
+
 export async function generateMetadata({}: {}): Promise<Metadata> {
   // fetch data
-  const layout = await client.fetch(settingsQuery(), {
-    next: { revalidate: 60 },
-  })
-  const page = await client.fetch(seoQuery("homepage"), {
-    next: { revalidate: 60 },
-  })
+  const layout = await client.fetch(settingsQuery())
+  const page = await client.fetch(seoQuery("homepage"))
 
   return {
     title: (layout as any).title,
@@ -23,9 +21,7 @@ export async function generateMetadata({}: {}): Promise<Metadata> {
 }
 
 async function getLayout() {
-  const layout = await client.fetch(settingsQuery(), {
-    next: { revalidate: 60 },
-  })
+  const layout = await client.fetch(settingsQuery())
 
   return layout
 }

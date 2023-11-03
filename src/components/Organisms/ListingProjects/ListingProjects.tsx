@@ -4,9 +4,7 @@ import { projectsQuery } from "@/lib/sanity/queries"
 import { Project } from "@/lib/types"
 
 async function getProjects() {
-  const projects = await client.fetch(projectsQuery(), {
-    next: { revalidate: 60 },
-  })
+  const projects = await client.fetch(projectsQuery())
 
   return projects
 }
