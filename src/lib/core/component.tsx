@@ -1,6 +1,6 @@
-import { memo, useMemo } from "react"
+import { memo, useMemo } from 'react'
 
-import { PAGE_COMPONENTS } from "../componentMaps"
+import { PAGE_COMPONENTS } from '../componentMaps'
 
 type Props = {
   componentName: string
@@ -13,9 +13,7 @@ const Component = ({ componentName, componentIndex, ...rest }: Props) => {
     [componentName]
   )
 
-  return Component ? (
-    <Component {...rest} componentIndex={componentIndex} />
-  ) : null
+  return Component ? <Component {...rest} componentIndex={componentIndex} /> : null
 }
 
 export const PageComponent = memo(Component)

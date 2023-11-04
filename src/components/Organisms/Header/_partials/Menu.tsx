@@ -1,7 +1,7 @@
-import client from "@/lib/sanity/config"
-import { menuQuery } from "@/lib/sanity/queries"
-import { Link } from "@/lib/types"
-import MenuItem from "./MenuItem"
+import client from '@/lib/sanity/config'
+import { menuQuery } from '@/lib/sanity/queries'
+import { Link } from '@/lib/types'
+import MenuItem from './MenuItem'
 
 async function getMenu(key: string) {
   const menu = await client.fetch(menuQuery(key))
@@ -10,7 +10,7 @@ async function getMenu(key: string) {
 }
 
 const Menu = async () => {
-  const data: any = await getMenu("primary")
+  const data: any = await getMenu('primary')
 
   return (
     data?.items && (

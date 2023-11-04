@@ -1,8 +1,8 @@
-"use client"
-import { SettingsContext } from "@/lib/core/context"
-import { PortableText } from "@portabletext/react"
-import Link from "next/link"
-import { useContext } from "react"
+'use client'
+import { SettingsContext } from '@/lib/core/context'
+import { PortableText } from '@portabletext/react'
+import Link from 'next/link'
+import { useContext } from 'react'
 
 const SecondColumn = () => {
   const { footerText } = useContext(SettingsContext)
@@ -20,12 +20,7 @@ const SecondColumn = () => {
                     {
                       // @ts-ignore
                       children.map((c) =>
-                        typeof c === "string"
-                          ? c.replace(
-                              "%year%",
-                              new Date().getFullYear().toString()
-                            )
-                          : c
+                        typeof c === 'string' ? c.replace('%year%', new Date().getFullYear().toString()) : c
                       )
                     }
                   </p>
@@ -35,10 +30,7 @@ const SecondColumn = () => {
             marks: {
               link: ({ children, value }) => {
                 return (
-                  <Link
-                    href={value?.href ? value?.href : "#"}
-                    target={value?.blank ? "_blank" : ""}
-                  >
+                  <Link href={value?.href ? value?.href : '#'} target={value?.blank ? '_blank' : ''}>
                     {children}
                   </Link>
                 )

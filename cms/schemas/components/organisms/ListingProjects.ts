@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 const ListingProjects = defineType({
   name: 'ListingProjects',

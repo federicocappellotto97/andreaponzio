@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic"
+import dynamic from 'next/dynamic'
 
 /**
  * The map of available components to render on pages.
@@ -6,12 +6,8 @@ import dynamic from "next/dynamic"
  */
 export const PAGE_COMPONENTS = {
   /* PAGE_COMPONENTS */
-  ThreeColumns: dynamic(() =>
-    import("@/components/Organisms/ThreeColumns/ThreeColumns")
-  ),
-  ListingProjects: dynamic(() =>
-    import("@/components/Organisms/ListingProjects/ListingProjects")
-  ),
-  HeroHome: dynamic(() => import("@/components/Organisms/HeroHome/HeroHome")),
-  Spacer: dynamic(() => import("@/components/Organisms/Spacer/Spacer")),
+  ThreeColumns: dynamic(() => import('@/components/Organisms/ThreeColumns/ThreeColumns')),
+  ListingProjects: dynamic(() => import('@/components/Organisms/ListingProjects/ListingProjects')),
+  HeroHome: dynamic(() => import('@/components/Organisms/HeroHome/HeroHome')),
+  Spacer: dynamic(() => import('@/components/Organisms/Spacer/Spacer')),
 }

@@ -1,7 +1,7 @@
-import client from "@/lib/sanity/config"
-import Card from "./_partials/Card"
-import { projectsQuery } from "@/lib/sanity/queries"
-import { Project } from "@/lib/types"
+import client from '@/lib/sanity/config'
+import Card from './_partials/Card'
+import { projectsQuery } from '@/lib/sanity/queries'
+import { Project } from '@/lib/types'
 
 async function getProjects() {
   const projects = await client.fetch(projectsQuery())

@@ -1,4 +1,4 @@
-import DarkModeToggle from "@/components/Atoms/DarkModeToggle/DarkModeToggle"
+import DarkModeToggle from '@/components/Atoms/DarkModeToggle/DarkModeToggle'
 
 const ThirdColumn = () => {
   return <DarkModeToggle />

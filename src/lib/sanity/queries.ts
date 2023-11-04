@@ -1,6 +1,4 @@
-export const pageQuery = (
-  slug: string
-) => /* groq */ `*[_type == 'pages' && slug.current == '${slug}'][0]{
+export const pageQuery = (slug: string) => /* groq */ `*[_type == 'pages' && slug.current == '${slug}'][0]{
       title, 
       "slug": slug.current,
       components[] {
@@ -25,10 +23,12 @@ export const pageQuery = (
       }
   }`
 
-export const seoQuery = (
-  slug: string
-) => /* groq */ `*[_type == 'pages' && slug.current == '${slug}'][0]{
-        title, metaDescription, slug
+export const seoQuery = (slug?: string) => /* groq */ `*[_type == 'pages' && slug.current == '${
+  slug ?? 'homepage'
+}'][0]{
+        title,
+        "metaTitle":seo.metaTitle,
+        "metaDescription":seo.metaDescription,
     }
   `
 
@@ -39,10 +39,8 @@ export const settingsQuery = () => /* groq */ `*[_type == 'settings'][0]{
         footerText
 }`
 
-export const pagesQuery = (
-  withHomepage = true
-) => /* groq */ `*[_type == 'pages' ${
-  withHomepage ? "" : "&& slug.current != 'homepage'"
+export const pagesQuery = (withHomepage = true) => /* groq */ `*[_type == 'pages' ${
+  withHomepage ? '' : "&& slug.current != 'homepage'"
 }]{
     "title": title,
     "metaDescription": metaDescription,
@@ -50,16 +48,13 @@ export const pagesQuery = (
     "updatetAt": _updatedAt
 }`
 
-export const menuQuery = (
-  key: string
-) => /* groq */ `*[_type == 'menu' && key == '${key}'][0]{
+export const menuQuery = (key: string) => /* groq */ `*[_type == 'menu' && key == '${key}'][0]{
         items[] {
             "link": link
         }
     }`
 
-export const projectsQuery =
-  () => /* groq */ `*[_type == 'projects']|order(orderRank){
+export const projectsQuery = () => /* groq */ `*[_type == 'projects']|order(orderRank){
     "title": title,
     "description": description,
     "image": {

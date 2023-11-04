@@ -1,5 +1,5 @@
-import Logo from "./_partials/Logo"
-import Menu from "./_partials/Menu"
+import Logo from './_partials/Logo'
+import Menu from './_partials/Menu'
 
 const Header = () => {
   return (

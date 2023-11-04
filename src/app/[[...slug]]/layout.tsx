@@ -1,24 +1,12 @@
-import Header from "@/components/Organisms/Header/Header"
-import type { Metadata } from "next"
+import Header from '@/components/Organisms/Header/Header'
 
-import Footer from "@/components/Organisms/Footer/Footer"
-import Context from "@/lib/core/context"
-import Lenis from "@/lib/core/lenis"
-import client from "@/lib/sanity/config"
-import { seoQuery, settingsQuery } from "@/lib/sanity/queries"
+import Footer from '@/components/Organisms/Footer/Footer'
+import Context from '@/lib/core/context'
+import Lenis from '@/lib/core/lenis'
+import client from '@/lib/sanity/config'
+import { settingsQuery } from '@/lib/sanity/queries'
 
 export const revalidate = 60
-
-export async function generateMetadata({}: {}): Promise<Metadata> {
-  // fetch data
-  const layout = await client.fetch(settingsQuery())
-  const page = await client.fetch(seoQuery("homepage"))
-
-  return {
-    title: (layout as any).title,
-    description: (page as any).description,
-  }
-}
 
 async function getLayout() {
   const layout = await client.fetch(settingsQuery())
@@ -26,11 +14,7 @@ async function getLayout() {
   return layout
 }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const layout = await getLayout()
   return (
     <Context layout={layout}>

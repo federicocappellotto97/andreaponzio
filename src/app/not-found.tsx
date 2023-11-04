@@ -1,9 +1,9 @@
-import { Metadata } from "next"
-import Link from "next/link"
+import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "404",
-  description: "404 - Pagina non trovata",
+  title: '404',
+  description: '404 - Pagina non trovata',
 }
 export default function NotFound() {
   return (

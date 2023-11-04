@@ -1,6 +1,6 @@
-import FirstColumn from "./_partials/FirstColumn"
-import SecondColumn from "./_partials/SecondColumn"
-import ThirdColumn from "./_partials/ThirdColumn"
+import FirstColumn from './_partials/FirstColumn'
+import SecondColumn from './_partials/SecondColumn'
+import ThirdColumn from './_partials/ThirdColumn'
 
 const Footer = () => {
   return (

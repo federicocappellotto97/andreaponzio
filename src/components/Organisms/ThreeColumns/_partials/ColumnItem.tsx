@@ -1,15 +1,12 @@
-"use client"
-import {
-  IsDelayAnimate,
-  PAGE_TRANSITION_DURATION,
-} from "@/components/Atoms/PageTransition/PageTransition"
-import { ConditionalWrapper } from "@/lib/core/ConditionalWrapper"
-import { PortableText } from "@portabletext/react"
-import { cx } from "class-variance-authority"
-import { motion } from "framer-motion"
-import { titleStyle } from "../ThreeColumns.style"
-import { useContext } from "react"
-import Link from "next/link"
+'use client'
+import { IsDelayAnimate, PAGE_TRANSITION_DURATION } from '@/components/Atoms/PageTransition/PageTransition'
+import { ConditionalWrapper } from '@/lib/core/ConditionalWrapper'
+import { PortableText } from '@portabletext/react'
+import { cx } from 'class-variance-authority'
+import { motion } from 'framer-motion'
+import { titleStyle } from '../ThreeColumns.style'
+import { useContext } from 'react'
+import Link from 'next/link'
 export default function ColumnItem({
   title,
   text,
@@ -23,9 +20,9 @@ export default function ColumnItem({
 }) {
   const hasDelay = useContext(IsDelayAnimate)
   const variants = {
-    initial: { clipPath: "polygon(0 0, 100% 0%, 100% 0%, 0% 0%)" },
+    initial: { clipPath: 'polygon(0 0, 100% 0%, 100% 0%, 0% 0%)' },
     visible: (i: number) => ({
-      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)",
+      clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0% 100%)',
       transition: {
         delay: i * 0.2 + (hasDelay ? PAGE_TRANSITION_DURATION : 0),
         duration: 0.5,
@@ -35,19 +32,10 @@ export default function ColumnItem({
   }
 
   return (
-    <motion.div
-      custom={index}
-      initial="initial"
-      animate="visible"
-      variants={variants}
-    >
+    <motion.div custom={index} initial="initial" animate="visible" variants={variants}>
       <ConditionalWrapper
         wrapper={(children) =>
-          isMain ? (
-            <h1 className={titleStyle}>{children}</h1>
-          ) : (
-            <h2 className={titleStyle}>{children}</h2>
-          )
+          isMain ? <h1 className={titleStyle}>{children}</h1> : <h2 className={titleStyle}>{children}</h2>
         }
       >
         {title}
@@ -56,8 +44,8 @@ export default function ColumnItem({
       {text && (
         <div
           className={cx(
-            "px-16 prose max-w-none text-black dark:text-white dark:prose-strong:text-white dark:prose-a:text-white hover:prose-a:text-[var(--current-color)] prose-a:transition-colors prose-a:duration-300 prose-a:ease-out prose-a:font-normal prose-a:no-underline",
-            isMain ? "text-lg" : "text-base"
+            'px-16 prose max-w-none text-black dark:text-white dark:prose-strong:text-white dark:prose-a:text-white hover:prose-a:text-[var(--current-color)] prose-a:transition-colors prose-a:duration-300 prose-a:ease-out prose-a:font-normal prose-a:no-underline',
+            isMain ? 'text-lg' : 'text-base'
           )}
         >
           <PortableText
@@ -66,10 +54,7 @@ export default function ColumnItem({
               marks: {
                 link: ({ children, value }) => {
                   return (
-                    <Link
-                      href={value?.href ? value?.href : "#"}
-                      target={value?.blank ? "_blank" : ""}
-                    >
+                    <Link href={value?.href ? value?.href : '#'} target={value?.blank ? '_blank' : ''}>
                       {children}
                     </Link>
                   )

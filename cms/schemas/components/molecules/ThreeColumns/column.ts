@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 const columnThreeColumns = defineType({
   name: 'columnThreeColumns',
@@ -21,7 +21,7 @@ const columnThreeColumns = defineType({
     select: {
       title: 'column',
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
         title: title.length > 1 ? `${title.length} columns` : `${title.length} column`,
       }
@@ -82,7 +82,7 @@ export const columnItem = defineType({
     select: {
       title: 'columnItem.title',
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
         title: title,
       }

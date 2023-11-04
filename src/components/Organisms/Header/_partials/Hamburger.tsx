@@ -1,9 +1,9 @@
-import { cx } from "class-variance-authority"
-import { Dispatch, SetStateAction } from "react"
-import { motion } from "framer-motion"
-import banana from "../../../../public/menu/banana.png"
-import menu from "../../../../public/menu/menu.svg"
-import Image from "next/image"
+import { cx } from 'class-variance-authority'
+import { Dispatch, SetStateAction } from 'react'
+import { motion } from 'framer-motion'
+import banana from '../../../../public/menu/banana.png'
+import menu from '../../../../public/menu/menu.svg'
+import Image from 'next/image'
 const Hamburger = ({
   open,
   setOpen,
@@ -17,11 +17,8 @@ const Hamburger = ({
 }) => {
   return (
     <button
-      aria-label={open ? "Close" : "Open"}
-      className={cx(
-        "text-white hover:text-primary flex flex-col transition-all duration-300 relative",
-        className
-      )}
+      aria-label={open ? 'Close' : 'Open'}
+      className={cx('text-white hover:text-primary flex flex-col transition-all duration-300 relative', className)}
       onClick={() => setOpen(!open)}
     >
       <motion.span
@@ -70,7 +67,7 @@ const Hamburger = ({
       <motion.span
         initial={false}
         animate={{
-          width: open ? "100%" : "0%",
+          width: open ? '100%' : '0%',
           originX: 0.5,
           transition: {
             ease: [0.2, 0.65, 0.3, 0.9],
@@ -79,15 +76,15 @@ const Hamburger = ({
         }}
         style={{
           rotate: 45,
-          translateX: "-50%",
-          translateY: "-50%",
+          translateX: '-50%',
+          translateY: '-50%',
         }}
         className="inline-block h-[0.1875rem] w-16 bg-current absolute left-1/2 top-1/2"
       />
       <motion.span
         initial={false}
         animate={{
-          width: open ? "100%" : "0%",
+          width: open ? '100%' : '0%',
           originX: 0.5,
           transition: {
             ease: [0.2, 0.65, 0.3, 0.9],
@@ -96,8 +93,8 @@ const Hamburger = ({
         }}
         style={{
           rotate: -45,
-          translateX: "-50%",
-          translateY: "-50%",
+          translateX: '-50%',
+          translateY: '-50%',
         }}
         className="inline-block h-[0.1875rem] w-16 bg-current absolute left-1/2 top-1/2"
       />
@@ -115,11 +112,7 @@ const Hamburger = ({
           animate="visible"
           className="absolute top-[70%] right-[calc(100%+1rem)] hidden lg:inline"
         >
-          <Image
-            src={menu}
-            alt=""
-            className="h-[4.77vw] w-auto max-w-none z-[1] relative"
-          />
+          <Image src={menu} alt="" className="h-[4.77vw] w-auto max-w-none z-[1] relative" />
           <Image
             src={banana}
             alt=""

@@ -1,41 +1,41 @@
-import type { Config } from "tailwindcss"
-const defaultTheme = require("tailwindcss/defaultTheme")
+import type { Config } from 'tailwindcss'
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 export const blue = {
-  100: "#40FFC9",
-  200: "#4AFCFE",
-  300: "#59D3C8",
-  400: "#2E95B4",
-  500: "#41BBAC",
-  600: "#55DAFD",
-  700: "#B2FEFE",
+  100: '#40FFC9',
+  200: '#4AFCFE',
+  300: '#59D3C8',
+  400: '#2E95B4',
+  500: '#41BBAC',
+  600: '#55DAFD',
+  700: '#B2FEFE',
 }
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./cms/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './cms/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: "class",
+  darkMode: 'class',
   theme: {
     colors: {
       blue,
-      black: "#000000",
-      white: "#FFFFFF",
+      black: '#000000',
+      white: '#FFFFFF',
       gray: {
-        dark: "#1A1818",
+        dark: '#1A1818',
       },
-      transparent: "transparent",
+      transparent: 'transparent',
     },
     fontSize: {
-      xl: ["2.25rem", "1.2"],
-      lg: ["1.5rem", "1.2"],
-      base: ["1rem", "1.2"],
+      xl: ['2.25rem', '1.2'],
+      lg: ['1.5rem', '1.2'],
+      base: ['1rem', '1.2'],
     },
     fontFamily: {
-      sans: ["Berthold Akzidenz Grotesk BE", ...defaultTheme.fontFamily.sans],
+      sans: ['Berthold Akzidenz Grotesk BE', ...defaultTheme.fontFamily.sans],
     },
     spacing: {
       /**
@@ -52,7 +52,7 @@ const config: Config = {
     },
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')],
   safelist: [
     {
       pattern: /bg-(blue)-(100|200|300|400|500)/,
@@ -92,9 +92,6 @@ function designToVw(value: number) {
  * }
  */
 export function generateSpacings({ vw = false }) {
-  const array = [...Array(251).keys()].map((el) => [
-    vw ? `${el}dw` : el,
-    vw ? designToVw(el) : rem(el),
-  ])
+  const array = [...Array(251).keys()].map((el) => [vw ? `${el}dw` : el, vw ? designToVw(el) : rem(el)])
   return Object.fromEntries(array)
 }

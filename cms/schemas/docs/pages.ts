@@ -1,5 +1,5 @@
-import {defineType, defineField} from 'sanity'
-import {DocumentsIcon} from '@sanity/icons'
+import { defineType, defineField } from 'sanity'
+import { DocumentsIcon } from '@sanity/icons'
 import organisms from '../components/organisms'
 
 export default defineType({
@@ -23,16 +23,15 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'metaDescription',
-      type: 'text',
-      title: 'SEO Description',
-      validation: (Rule) => Rule.required().min(70).max(155),
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO',
     }),
     defineField({
       title: 'Components',
       name: 'components',
       type: 'array',
-      of: organisms.map(({name}) => ({
+      of: organisms.map(({ name }) => ({
         type: name,
       })),
     }),

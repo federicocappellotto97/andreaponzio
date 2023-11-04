@@ -1,6 +1,6 @@
-"use client"
-import { SettingsContext } from "@/lib/core/context"
-import { useContext } from "react"
+'use client'
+import { SettingsContext } from '@/lib/core/context'
+import { useContext } from 'react'
 
 const FirstColumn = () => {
   const { email } = useContext(SettingsContext)
