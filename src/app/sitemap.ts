@@ -14,14 +14,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return pages.map((page) => {
     if (page.slug == 'homepage') {
       return {
-        url: process.env.FRONT_URL || 'https://acme.com',
+        url: process.env.FRONT_URL,
         lastModified: new Date(page.updatetAt),
         changeFrequency: 'yearly',
         priority: 1,
       }
     } else
       return {
-        url: `${process.env.FRONT_URL || 'https://acme.com'}/${page.slug}`,
+        url: `${process.env.FRONT_URL}/${page.slug}`,
         lastModified: new Date(page.updatetAt),
         changeFrequency: 'yearly',
         priority: 0.8,
