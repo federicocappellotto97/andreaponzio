@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { LayoutRouterContext } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { createContext } from 'react'
+import useLayoutStore from '@/lib/core/layoutStore'
 
 export function useLayoutRouterContext() {
   return useContext(LayoutRouterContext)
@@ -37,9 +38,17 @@ export default function PageTransition({ children }: PropsWithChildren) {
   }, [])
 
   const indices = shuffleArray(Array.from(Array(5).keys()))
+  const setMenuOpen = useLayoutStore((state) => state.setMenuOpen)
 
   return (
-    <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+    <AnimatePresence
+      mode="wait"
+      initial={false}
+      onExitComplete={() => {
+        setMenuOpen(false)
+        window.scrollTo(0, 0)
+      }}
+    >
       <div key={pathname} className="contents">
         {indices.map((_, i) => (
           <Fragment key={i}>

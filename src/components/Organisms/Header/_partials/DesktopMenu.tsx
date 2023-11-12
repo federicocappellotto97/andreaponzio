@@ -1,21 +1,11 @@
-import client from '@/lib/sanity/config'
-import { menuQuery } from '@/lib/sanity/queries'
 import { Link } from '@/lib/types'
 import MenuItem from './MenuItem'
 
-async function getMenu(key: string) {
-  const menu = await client.fetch(menuQuery(key))
-
-  return menu
-}
-
-const Menu = async () => {
-  const data: any = await getMenu('primary')
-
+const Menu = ({ items }: { items: { link: Link }[] }) => {
   return (
-    data?.items && (
-      <ul className="flex items-center gap-16 lg:ml-auto">
-        {data.items.map(
+    items && (
+      <ul className="hidden lg:flex items-center gap-16 lg:ml-auto">
+        {items.map(
           ({ link }: { link: Link }, index: number) =>
             link && (
               <li key={index} className="relative overflow-hidden">

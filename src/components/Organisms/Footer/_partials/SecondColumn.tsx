@@ -1,15 +1,23 @@
 'use client'
 import { SettingsContext } from '@/lib/core/context'
 import { PortableText } from '@portabletext/react'
+import { cx } from 'class-variance-authority'
 import Link from 'next/link'
 import { useContext } from 'react'
 
-const SecondColumn = () => {
+const SecondColumn = ({ isHeader = false }: { isHeader?: boolean }) => {
   const { footerText } = useContext(SettingsContext)
 
   return (
     footerText && (
-      <div className="text-black text-center dark:text-white prose max-w-none dark:prose-strong:text-white dark:prose-a:text-white hover:prose-a:text-[var(--current-color)] prose-a:transition-colors prose-a:duration-300 prose-a:ease-out prose-a:font-normal prose-a:no-underline">
+      <div
+        className={cx(
+          'text-center prose max-w-none hover:prose-a:text-[var(--current-color)] prose-a:transition-colors prose-a:duration-300 prose-a:ease-out prose-a:font-normal prose-a:no-underline',
+          isHeader
+            ? 'mt-auto text-white dark:text-black prose-a:text-current prose-strong:text-current dark:prose-strong:text-current dark:prose-a:text-current'
+            : 'text-black prose-a:text-current prose-strong:text-current dark:text-white dark:prose-strong:text-current dark:prose-a:text-current'
+        )}
+      >
         <PortableText
           value={footerText}
           components={{

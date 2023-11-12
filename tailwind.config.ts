@@ -21,6 +21,7 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     colors: {
+      current: 'currentColor',
       blue,
       black: '#000000',
       white: '#FFFFFF',
