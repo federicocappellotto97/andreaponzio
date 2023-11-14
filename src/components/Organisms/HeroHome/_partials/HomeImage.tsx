@@ -2,7 +2,7 @@
 import { shuffleArray } from '@/components/Atoms/PageTransition/PageTransition'
 import { useEffect, useState } from 'react'
 import { blue } from '../../../../../tailwind.config'
-function HomeImage() {
+function HomeImage({ className }: { className?: string }) {
   const [colors, setColors] = useState(Object.values(blue))
 
   useEffect(() => {
@@ -14,7 +14,13 @@ function HomeImage() {
   }, [colors])
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="907.837" height="446.099" viewBox="0 0 907.837 446.099">
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width="907.837"
+      height="446.099"
+      viewBox="0 0 907.837 446.099"
+    >
       <defs>
         <clipPath id="clip-path">
           <path d="M0-64.7h907.837v-446.1H0z" data-name="Path 21" transform="translate(0 510.8)"></path>

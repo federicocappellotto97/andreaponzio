@@ -51,7 +51,7 @@ export default function CardProject({ title, description, image, index }: Projec
             exit={{ y: '-100%' }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="text-lg font-medium">{title}</h2>
+            <h2 className="text-lg font-bold">{title}</h2>
             {description && (
               <div className="mt-auto">
                 <PortableText

@@ -4,10 +4,10 @@ import { Link } from '@/lib/types'
 import { AnimatePresence, motion } from 'framer-motion'
 import MenuItem from './MenuItem'
 
+import DarkModeToggle from '@/components/Atoms/DarkModeToggle/DarkModeToggle'
 import { cx } from 'class-variance-authority'
 import Footer from '../../Footer/_partials/SecondColumn'
 import Hamburger from './Hamburger'
-import DarkModeToggle from '@/components/Atoms/DarkModeToggle/DarkModeToggle'
 
 const Menu = ({ items }: { items: { link: Link }[] }) => {
   const isMenuOpen = useLayoutStore((state) => state.isMenuOpen)

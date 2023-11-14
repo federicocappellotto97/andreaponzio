@@ -36,7 +36,7 @@ const config: Config = {
       base: ['1rem', '1.2'],
     },
     fontFamily: {
-      sans: ['Berthold Akzidenz Grotesk BE', ...defaultTheme.fontFamily.sans],
+      sans: ['Suisse', ...defaultTheme.fontFamily.sans],
     },
     spacing: {
       /**

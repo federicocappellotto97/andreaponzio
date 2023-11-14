@@ -6,17 +6,27 @@ import PageTransition from '@/components/Atoms/PageTransition/PageTransition'
 import localFont from 'next/font/local'
 
 // Font files can be colocated inside of `pages`
-const berthold = localFont({
+const suisse = localFont({
   src: [
     {
-      path: '../fonts/Berthold Akzidenz Grotesk/Berthold Akzidenz Grotesk BE Regular.otf',
+      path: '../fonts/suisse/suisse-regular.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../fonts/Berthold Akzidenz Grotesk/Berthold Akzidenz Grotesk BE Medium.otf',
-      weight: '500',
+      path: '../fonts/suisse/suisse-regular-italic.otf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../fonts/suisse/suisse-bold.otf',
+      weight: '700',
       style: 'normal',
+    },
+    {
+      path: '../fonts/suisse/suisse-bold-italic.otf',
+      weight: '700',
+      style: 'italic',
     },
   ],
 })
@@ -26,7 +36,7 @@ export default async function PageLayout({ children }: { children: React.ReactNo
     <html lang="it">
       <body
         className={cx(
-          berthold.className,
+          suisse.className,
           'bg-white dark:bg-black antialiased flex flex-col transition-colors duration-300 ease-out min-h-screen'
         )}
       >
