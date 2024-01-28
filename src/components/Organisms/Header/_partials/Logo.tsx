@@ -7,13 +7,13 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useContext } from 'react'
 
-const Logo = () => {
+const Logo = ({ className }: { className?: string }) => {
   const { title } = useContext(SettingsContext)
   const pathname = usePathname()
   const isMenuOpen = useLayoutStore((state) => state.isMenuOpen)
 
   return (
-    <Link className="z-40" href="/" aria-label={title} title={title}>
+    <Link className={cx(className, 'z-40')} href="/" aria-label={title} title={title}>
       <LogoIcon
         className={cx(
           'h-30 lg:h-50',

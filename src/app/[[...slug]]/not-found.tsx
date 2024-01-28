@@ -1,3 +1,4 @@
+import Logo from '@/components/Atoms/Logo/Logo'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -7,13 +8,15 @@ export const defaultMetadata: Metadata = {
 }
 export default function NotFound() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-32 overflow-hidden">
-      <p className="uppercase text-lg text-center font-bold leading-none whitespace-nowrap">404 - Pagina non trovata</p>
+    <div className="flex flex-1 flex-col items-center justify-center overflow-hidden">
+      <h1 className="text-xl text-center font-bold whitespace-nowrap">Errore</h1>
+      <p className="text-lg text-center whitespace-nowrap">Qualcosa è andato storto.</p>
+      <Logo className="rotate-180 h-192 mt-30" />
       <Link
         href="/"
-        className="font-bold hover:bg-blue-400 transition-colors duration-300 ease-out px-64 rounded bg-blue-100 py-16"
+        className="font-bold mt-30 after:h-1 relative after:absolute after:bottom-0 after:inset-x-0 after:scale-x-0 hover:after:scale-x-100 after:transition after:ease-out after:origin-center after:bg-black"
       >
-        Torna alla home
+        Torna alla pagina iniziale.
       </Link>
     </div>
   )
