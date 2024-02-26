@@ -14,15 +14,33 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   const layout = await client.fetch<{ afterTitle: string }>(settingsQuery())
 
+  const og = {
+    url: 'andreaponzio.com',
+    siteName: 'Andrea Ponzio',
+    images: {
+      url: '/og.jpg',
+      width: 1200,
+      height: 630,
+    },
+    locale: 'it-IT',
+    type: 'website',
+  }
+
   if (!seo)
     return {
       ...notFoundMetadata,
       title: notFoundMetadata.title + layout.afterTitle,
+      ...og,
     }
 
   return {
     title: seo?.metaTitle ?? (seo?.title ?? '') + layout.afterTitle,
     description: seo?.metaDescription,
+    openGraph: {
+      title: seo?.metaTitle ?? (seo?.title ?? '') + layout.afterTitle,
+      description: seo?.metaDescription,
+      ...og,
+    },
   }
 }
 
