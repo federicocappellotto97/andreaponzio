@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { IsDelayAnimate, PAGE_TRANSITION_DURATION } from '@/components/Atoms/PageTransition/PageTransition'
 import { useContext, useState } from 'react'
 import { blue } from '../../../../../tailwind.config'
-import Link from 'next/link'
+import { Link } from '@/lib/core/Link'
 
 export default function CardProject({ title, description, image, index }: Project & { index: number }) {
   const hasDelay = useContext(IsDelayAnimate)

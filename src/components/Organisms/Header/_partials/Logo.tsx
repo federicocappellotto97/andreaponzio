@@ -3,7 +3,7 @@ import LogoIcon from '@/components/Atoms/Logo/Logo'
 import { SettingsContext } from '@/lib/core/context'
 import useLayoutStore from '@/lib/core/layoutStore'
 import { cx } from 'class-variance-authority'
-import Link from 'next/link'
+import { Link } from '@/lib/core/Link'
 import { usePathname } from 'next/navigation'
 import { useContext } from 'react'
 
@@ -13,7 +13,7 @@ const Logo = ({ className }: { className?: string }) => {
   const isMenuOpen = useLayoutStore((state) => state.isMenuOpen)
 
   return (
-    <Link className={cx(className, 'z-40')} href="/" aria-label={title} title={title}>
+    <Link className={cx(className, 'z-40')} href="/" aria-label={title}>
       <LogoIcon
         className={cx(
           'h-30 lg:h-50',

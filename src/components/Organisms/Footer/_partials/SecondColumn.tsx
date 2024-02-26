@@ -2,7 +2,7 @@
 import { SettingsContext } from '@/lib/core/context'
 import { PortableText } from '@portabletext/react'
 import { cx } from 'class-variance-authority'
-import Link from 'next/link'
+import { Link } from '@/lib/core/Link'
 import { useContext } from 'react'
 
 const SecondColumn = ({ isHeader = false }: { isHeader?: boolean }) => {

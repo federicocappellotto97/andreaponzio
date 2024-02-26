@@ -6,7 +6,8 @@ import { cx } from 'class-variance-authority'
 import { motion } from 'framer-motion'
 import { titleStyle } from '../ThreeColumns.style'
 import { useContext } from 'react'
-import Link from 'next/link'
+import { Link } from '@/lib/core/Link'
+
 export default function ColumnItem({
   title,
   text,

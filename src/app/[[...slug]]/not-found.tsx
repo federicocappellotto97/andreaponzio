@@ -1,6 +1,6 @@
 import Logo from '@/components/Atoms/Logo/Logo'
 import { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/lib/core/Link'
 
 export const defaultMetadata: Metadata = {
   title: '404',
