@@ -1,11 +1,14 @@
 import Logo from './_partials/Logo'
 import DesktopMenu from './_partials/DesktopMenu'
 import MobileMenu from './_partials/MobileMenu'
-import client from '@/lib/sanity/config'
+import client, { defaultSanityConfig } from '@/lib/sanity/config'
 import { menuQuery } from '@/lib/sanity/queries'
 
 async function getMenu(key: string) {
-  const menu = await client.fetch(menuQuery(key))
+  const menu = await client.fetch({
+    query: menuQuery(key),
+    config: defaultSanityConfig,
+  })
 
   return menu
 }

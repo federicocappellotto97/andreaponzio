@@ -1,10 +1,13 @@
-import client from '@/lib/sanity/config'
+import client, { defaultSanityConfig } from '@/lib/sanity/config'
 import Card from './_partials/Card'
 import { projectsQuery } from '@/lib/sanity/queries'
 import { Project } from '@/lib/types'
 
 async function getProjects() {
-  const projects = await client.fetch(projectsQuery())
+  const projects = await client.fetch({
+    query: projectsQuery(),
+    config: defaultSanityConfig,
+  })
 
   return projects
 }

@@ -3,13 +3,14 @@ import Header from '@/components/Organisms/Header/Header'
 import Footer from '@/components/Organisms/Footer/Footer'
 import Context from '@/lib/core/context'
 import Lenis from '@/lib/core/lenis'
-import client from '@/lib/sanity/config'
+import client, { defaultSanityConfig } from '@/lib/sanity/config'
 import { settingsQuery } from '@/lib/sanity/queries'
 
-export const revalidate = 60
-
 async function getLayout() {
-  const layout = await client.fetch(settingsQuery())
+  const layout = await client.fetch({
+    query: settingsQuery(),
+    config: defaultSanityConfig,
+  })
 
   return layout
 }

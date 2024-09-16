@@ -1,5 +1,5 @@
 import { PageComponent } from '@/lib/core/component'
-import client from '@/lib/sanity/config'
+import client, { defaultSanityConfig } from '@/lib/sanity/config'
 import { pageQuery, pagesQuery, seoQuery, settingsQuery } from '@/lib/sanity/queries'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -8,11 +8,15 @@ import { defaultMetadata as notFoundMetadata } from './not-found'
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const slug = params.slug
 
-  const seo = await client.fetch<{ title: string; metaTitle?: string; metaDescription: string }>(
-    seoQuery(Array.isArray(slug) ? slug[0] : slug)
-  )
+  const seo = await client.fetch<{ title: string; metaTitle?: string; metaDescription: string }>({
+    query: seoQuery(Array.isArray(slug) ? slug[0] : slug),
+    config: defaultSanityConfig,
+  })
 
-  const layout = await client.fetch<{ afterTitle: string }>(settingsQuery())
+  const layout = await client.fetch<{ afterTitle: string }>({
+    query: settingsQuery(),
+    config: defaultSanityConfig,
+  })
 
   const og = {
     url: 'andreaponzio.com',
@@ -45,7 +49,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 async function getPage(slug: string | string[]) {
-  const page = await client.fetch(pageQuery(slug ? (Array.isArray(slug) ? slug[0] : slug) : 'homepage'))
+  const page = await client.fetch({
+    query: pageQuery(slug ? (Array.isArray(slug) ? slug[0] : slug) : 'homepage'),
+    config: defaultSanityConfig,
+  })
 
   // @ts-ignore
   if (!page?.['slug']) notFound()
@@ -54,7 +61,10 @@ async function getPage(slug: string | string[]) {
 }
 
 export async function generateStaticParams() {
-  const pages = await client.fetch(pagesQuery(false))
+  const pages = await client.fetch({
+    query: pagesQuery(false),
+    config: defaultSanityConfig,
+  })
 
   return (pages as any).map(({ slug }: any) => slug)
 }

@@ -1,9 +1,12 @@
-import client from '@/lib/sanity/config'
+import client, { defaultSanityConfig } from '@/lib/sanity/config'
 import { pagesQuery } from '@/lib/sanity/queries'
 import type { MetadataRoute } from 'next'
 
 async function getPages() {
-  const pages = await client.fetch(pagesQuery())
+  const pages = await client.fetch({
+    query: pagesQuery(),
+    config: defaultSanityConfig,
+  })
 
   return pages
 }
