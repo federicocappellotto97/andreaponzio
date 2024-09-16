@@ -4,6 +4,7 @@ import './globals.css'
 
 import PageTransition from '@/components/Atoms/PageTransition/PageTransition'
 import localFont from 'next/font/local'
+import { Analytics } from '@vercel/analytics/react'
 
 // Font files can be colocated inside of `pages`
 const suisse = localFont({
@@ -40,6 +41,7 @@ export default async function PageLayout({ children }: { children: React.ReactNo
           'bg-white dark:bg-black antialiased flex flex-col transition-colors duration-300 ease-out min-h-screen'
         )}
       >
+        <Analytics />
         <PageTransition>
           <NextTopLoader color="black" />
           {children}
